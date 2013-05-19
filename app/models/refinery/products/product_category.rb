@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 module Refinery
   module Products
     class ProductCategory < Refinery::Core::BaseModel
 
-      self.table_name = 'refinery_product_categories'  
+      self.table_name = 'refinery_product_categories'
 
       acts_as_tree :order => 'sort ASC, created_at DESC'
 
@@ -12,7 +13,7 @@ module Refinery
       before_validation :update_subtree_ids, :on => :create
       after_update :update_ancestors_subtree_ids
       after_destroy :update_ancestors_subtree_ids
-      
+
       validates_presence_of :name, :code
       validates_uniqueness_of :code
 
@@ -40,7 +41,7 @@ module Refinery
             ids.concat(get_subtree_ids(cate)) if cate.children
           end
         end
-        
+
         return ids
       end
     end

@@ -6,7 +6,7 @@ module Refinery
     class Product < Refinery::Core::BaseModel
       ::Refinery::Products::Dragonfly.setup!
 
-      self.table_name = 'refinery_products'  
+      self.table_name = 'refinery_products'
 
       has_many :images, :class_name => ProductImage
       belongs_to :category, :foreign_key => 'category_id', :class_name => 'ProductCategory'
@@ -18,8 +18,8 @@ module Refinery
       attr_accessible :title, :description, :position, :image, :image_size
 
       acts_as_indexed :fields => [:title, :description]
-      
-      validates :title, :presence => true  
+
+      validates :title, :presence => true
     end
   end
 end

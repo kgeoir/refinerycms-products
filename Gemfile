@@ -30,7 +30,6 @@ group :development, :test do
   unless defined?(JRUBY_VERSION)
     gem 'sqlite3'
     gem 'mysql2'
-    gem 'pg'
   end
 
   platforms :mswin, :mingw do
