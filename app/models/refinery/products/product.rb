@@ -6,6 +6,7 @@ module Refinery
     class Product < Refinery::Core::BaseModel
       ::Refinery::Products::Dragonfly.setup!
 
+      default_scope order('position ASC')
       self.table_name = 'refinery_products'
 
       has_many :images, :class_name => ProductImage

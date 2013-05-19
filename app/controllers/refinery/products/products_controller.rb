@@ -2,7 +2,6 @@ module Refinery
   module Products
     class ProductsController < ::ApplicationController
 
-      before_filter :find_all_products
       before_filter :find_page
 
       def index
@@ -21,10 +20,6 @@ module Refinery
       end
 
     protected
-
-      def find_all_products
-        @products = Product.order('position ASC')
-      end
 
       def find_page
         @page = ::Refinery::Page.where(:link_url => "/products").first
