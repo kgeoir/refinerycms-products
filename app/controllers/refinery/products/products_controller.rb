@@ -2,6 +2,7 @@ module Refinery
   module Products
     class ProductsController < ::ApplicationController
 
+      before_filter do @products = Product.all end
       before_filter :find_page
 
       def index

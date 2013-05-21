@@ -2,10 +2,14 @@
 module Refinery
   module Products
     class ProductCategory < Refinery::Core::BaseModel
+      attr_accessible :name, :code, :description
 
       self.table_name = 'refinery_product_categories'
 
-      acts_as_tree :order => 'sort ASC, created_at DESC'
+      belongs_to :parent, :class_name => name, :foreign_key => "parent_id"
+      has_many :children, :class_name => name, :foreign_key => "parent_id", :dependent => :destroy
+
+      default_scope order('sort ASC, created_at DESC')
 
       scope :roots, :conditions => 'parent_id is NULL', :order => 'sort ASC, created_at DESC'
 
@@ -17,9 +21,21 @@ module Refinery
       validates_presence_of :name, :code
       validates_uniqueness_of :code
 
+      def ancestors nodes = []
+        node = self
+        if node.parent.nil?
+          return nodes
+        else
+          nodes << self.parent
+          return node.parent.ancestors(nodes)
+        end
+      end
+
     private
 
       # 初始化DN, 原理是调用save触发更新时的update_dn生成DN然后保存
+      # => Initialization DN principle the call save trigger updates
+      # update_dn generated DN and then save
       def initial_subtree_ids
 	      self.save
       end
@@ -44,6 +60,7 @@ module Refinery
 
         return ids
       end
+
     end
   end
 end

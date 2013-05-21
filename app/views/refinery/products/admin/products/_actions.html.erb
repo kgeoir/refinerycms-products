@@ -8,6 +8,9 @@
     <%= link_to t('.create_new'), refinery.new_products_admin_product_path,
                  :class => "add_icon" %>
   </li>
+  <li>
+    <%# link_to t('.manage_categories'), refinery.show_categories_admin_path, :class => 'manage_categories' %>
+  </li>
 <% if !searching? && ::Refinery::Products::Admin::ProductsController.sortable? && ::Refinery::Products::Product.any? %>
   <li>
     <%= link_to t('.reorder', :what => "Products"),

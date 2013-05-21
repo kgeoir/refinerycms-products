@@ -5,6 +5,10 @@ Refinery::Core::Engine.routes.append do
     resources :products, :path => '', :only => [:index, :show]
   end
 
+  namespace :categories do
+    resources :categories, :path => '', :only => [:index, :show]
+  end
+
   # Admin routes
   namespace :products, :path => '' do
     namespace :admin, :path => 'refinery' do
