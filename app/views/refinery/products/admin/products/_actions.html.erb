@@ -9,7 +9,7 @@
                  :class => "add_icon" %>
   </li>
   <li>
-    <%# link_to t('.manage_categories'), refinery.show_categories_admin_path, :class => 'manage_categories' %>
+    <%# link_to t('.manage_categories'), refinery.categories_categories_path, :class => 'manage_categories' %>
   </li>
 <% if !searching? && ::Refinery::Products::Admin::ProductsController.sortable? && ::Refinery::Products::Product.any? %>
   <li>

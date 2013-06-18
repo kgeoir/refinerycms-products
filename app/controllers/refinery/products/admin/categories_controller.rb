@@ -1,7 +1,10 @@
 module Refinery
   module Products
     module Admin
-      class CategoriesConstroller < ::Refinery::AdminController
+      class CategoriesController < ::Refinery::AdminController
+
+        crudify "refinery/products/product_category", :xhr_paging => true
+
       end
     end
   end
