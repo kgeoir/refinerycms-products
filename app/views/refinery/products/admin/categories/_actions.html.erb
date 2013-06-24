@@ -5,7 +5,7 @@
     </li>
   <% end %>
   <li>
-    <%= link_to t('.create_new'), refinery.new_products_admin_product_path,
+    <%# link_to t('.create_new'), refinery.new_products_admin_category_path,
                  :class => "add_icon" %>
   </li>
 <% if !searching? && ::Refinery::Products::Admin::ProductsController.sortable? && ::Refinery::Products::Product.any? %>

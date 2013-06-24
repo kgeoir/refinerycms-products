@@ -5,6 +5,11 @@ module Refinery
 
         crudify "refinery/products/product_category", :xhr_paging => true
 
+        def index
+          @categories = Products::ProductCategory.all
+        end
+
+
       end
     end
   end

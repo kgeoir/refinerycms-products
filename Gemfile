@@ -28,7 +28,9 @@ group :development, :test do
   end
 
   unless defined?(JRUBY_VERSION)
-    gem 'sqlite3'
+    group :development, :test do
+  gem 'sqlite3'
+end
     gem 'mysql2'
   end
 

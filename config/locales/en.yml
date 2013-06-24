@@ -10,6 +10,7 @@ en:
             create_new: Add New Product
             reorder: Reorder Products
             reorder_done: Done Reordering Products
+            manage_categories: Manage Categories
           records:
             title: Products
             sorry_no_results: Sorry! There are no results found.
@@ -18,6 +19,10 @@ en:
             view_live_html: View this product live <br/><em>(opens in a new window)</em>
             edit: Edit this product
             delete: Remove this product forever
+        categories:
+          actions:
+            create_new: Add new category
+            reorder: Reorder Categories
       products:
         show:
           other: Other Products
