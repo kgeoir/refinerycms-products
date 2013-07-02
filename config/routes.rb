@@ -18,7 +18,7 @@ Refinery::Core::Engine.routes.append do
         resources :product_images
         resources :categories, :only => :index
       end
-      resources :categories, :only => :index
+      resources :categories, :except => :show
     end
   end
 

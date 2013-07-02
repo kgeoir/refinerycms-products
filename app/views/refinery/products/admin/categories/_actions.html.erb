@@ -1,22 +1,22 @@
 <ul>
-  <% if ::Refinery::Products::Admin::ProductsController.searchable? %>
+  <% if ::Refinery::Products::Admin::CategoriesController.searchable? %>
     <li>
-      <%= render '/refinery/admin/search', :url => refinery.products_admin_products_path %>
+      <%= render '/refinery/admin/search', :url => refinery.products_admin_categories_path %>
     </li>
   <% end %>
   <li>
     <%# link_to t('.create_new'), refinery.new_products_admin_category_path,
                  :class => "add_icon" %>
   </li>
-<% if !searching? && ::Refinery::Products::Admin::ProductsController.sortable? && ::Refinery::Products::Product.any? %>
+<% if !searching? && ::Refinery::Products::Admin::CategoriesController.sortable? && ::Refinery::Products::Product.any? %>
   <li>
-    <%= link_to t('.reorder', :what => "Products"),
-                 refinery.products_admin_products_path,
+    <%= link_to t('.reorder', :what => "Categories"),
+                 refinery.products_admin_categories_path,
                  :id => "reorder_action",
                  :class => "reorder_icon" %>
 
-    <%= link_to t('.reorder_done', :what => "Products"),
-                 refinery.products_admin_products_path,
+    <%= link_to t('.reorder_done', :what => "Categories"),
+                 refinery.products_admin_categories_path,
                  :id => "reorder_action_done",
                  :style => "display: none;",
                  :class => "reorder_icon" %>
@@ -25,4 +25,9 @@
   <li>
     <%= link_to t('.manage_categories'), refinery.products_admin_categories_path, :class => 'manage_categories' %>
   </li>
+
+  <li>
+    <%= link_to t('.new_category'), refinery.new_products_admin_category_path, :class => 'add_icon' %>
+  </li>
+
 </ul>

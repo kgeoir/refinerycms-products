@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+require 'acts_as_indexed'
+
 module Refinery
   module Products
     class ProductCategory < Refinery::Core::BaseModel
