@@ -7,6 +7,8 @@ module Refinery
 
         crudify "refinery/products/product_category", :xhr_paging => true
 
+        before_filter do @categories = Products::ProductCategory.all end
+
         def index
           @categories = Products::ProductCategory.all.paginate(:page => 1)
         end

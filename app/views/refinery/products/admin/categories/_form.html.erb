@@ -1,0 +1,26 @@
+<%= form_for @category, url: refinery.products_admin_categories_path do |f| %>
+
+  <div class='field'>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </div>
+
+
+  <div class='field'>
+    <div id='page_part_editors'>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+  </div>
+
+  <div class='field'>
+    <%= f.label :parent_id %>
+    <%= f.select :parent_id, available_categories(@categories), :include_blank => true %>
+  </div>
+  <%= f.submit %>
+<% end %>

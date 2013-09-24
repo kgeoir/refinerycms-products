@@ -4,7 +4,7 @@ require 'acts_as_indexed'
 module Refinery
   module Products
     class ProductCategory < Refinery::Core::BaseModel
-      attr_accessible :name, :code, :description
+      attr_accessible :name, :code, :description, :parent_id
 
       self.table_name = 'refinery_product_categories'
 
