@@ -4,6 +4,7 @@ module Refinery
       class ProductsController < ::Refinery::AdminController
 
         crudify :'refinery/products/product', :xhr_paging => true
+        before_filter do @categories = Refinery::Products::ProductCategory.all end
 
         def update
           image = params[:product].delete 'image'

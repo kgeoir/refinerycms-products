@@ -16,7 +16,7 @@ module Refinery
 
       image_accessor :image
 
-      attr_accessible :title, :description, :position, :image, :image_size
+      attr_accessible :title, :description, :position, :image, :image_size, :category_id
 
       acts_as_indexed :fields => [:title, :description]
 

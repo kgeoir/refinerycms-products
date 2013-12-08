@@ -9,6 +9,11 @@
   </div>
 
   <div class='field'>
+    <%= f.label :category -%>: <%= @product.category ? @product.category.name : "" %>
+  </div>
+    <%= f.select(:category_id, @categories.collect {|c| [c.name, c.id]}.push([])) %>
+
+  <div class='field'>
     <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
       <ul id='page_parts'>
         <% [:description].each_with_index do |part, part_index| %>
