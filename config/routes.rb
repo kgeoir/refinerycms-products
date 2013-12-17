@@ -16,10 +16,11 @@ Refinery::Core::Engine.routes.append do
         post   :update_positions, :on => :collection
         #delete :destroy_images, :on => :member
         resources :product_images
-        resources :categories, :only => :index
+        resources :categories, :only => [:index, :update]
       end
-      resources :categories, :except => :show do
-        post   :update_positions, :on => :collection
+      resources :categories, :only => [:create, :show, :index, :update, :destoy, :new, :edit] do
+        post :update_positions, :on => :collection
+        put :update
       end
     end
   end

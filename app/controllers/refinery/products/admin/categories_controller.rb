@@ -13,19 +13,25 @@ module Refinery
           @categories = Products::ProductCategory.all.paginate(:page => 1)
         end
 
+        def edit
+          @category = Products::ProductCategory.find_by_id(params[:id])
+        end
+
         def new
           @category = Products::ProductCategory.new
         end
 
         def update
+          p "========================== UPDATE ===="
+          p params
           @category = Products::ProductCategory.find params[:id]
-
-          @category.update_attributes params[:category]
+          @category.update_attributes params[:product_category]
 
           redirect_to :back
         end
 
         def create
+          p "========================== CREATE ====="
           @category = Products::ProductCategory.new(params[:product_category])
           @category.save!
           redirect_to refinery.products_admin_categories_path
