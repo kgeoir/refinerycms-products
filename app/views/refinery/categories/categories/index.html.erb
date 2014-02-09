@@ -1,10 +1,6 @@
 <% content_for :body do %>
   <ul id="categories">
-    <% @categories.each do |category| %>
-      <li>
-        <%= link_to category.title, refinery.categories_category_path(category) %>
-      </li>
-    <% end %>
+    <%= render partial: 'category_tree', collection: @categories, as: :category %>
   </ul>
 <% end %>
 

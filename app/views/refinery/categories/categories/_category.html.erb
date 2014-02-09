@@ -1,0 +1,8 @@
+<li>
+  <%= link_to category.name, refinery.categories_category_path(category) %>
+  <ul>
+    <% category.products.each do |product| %>
+      <%= link_to product.title, refinery.products_product_path(product) %>
+    <% end %>
+  </ul>
+</li>

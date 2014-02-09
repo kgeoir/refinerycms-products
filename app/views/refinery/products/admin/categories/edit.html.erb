@@ -22,8 +22,6 @@
     <%= f.label :parent_id %>
     <%= f.select :parent_id, available_categories(@categories), :include_blank => true %>
   </div>
-  <%= f.submit -%>
-
 
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,

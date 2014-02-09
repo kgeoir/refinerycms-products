@@ -8,20 +8,19 @@ module Refinery
 
       self.table_name = 'refinery_product_categories'
 
-      belongs_to :parent, :class_name => name, :foreign_key => "parent_id"
+      belongs_to :parent, :class_name => name
       has_many :children, :class_name => name, :foreign_key => "parent_id", :dependent => :destroy
-
-      default_scope order('sort ASC, created_at DESC')
 
       scope :roots, :conditions => 'parent_id is NULL', :order => 'sort ASC, created_at DESC'
 
       after_create :initial_subtree_ids
-      before_validation :update_subtree_ids, :on => :create
-      after_update :update_ancestors_subtree_ids
+      before_validation :update_subtree_ids
+      after_save :update_ancestors_subtree_ids
       after_destroy :update_ancestors_subtree_ids
 
       validates_presence_of :name, :code
       validates_uniqueness_of :code
+      validate :paternity
 
       def ancestors nodes = []
         node = self
@@ -33,7 +32,17 @@ module Refinery
         end
       end
 
+      def products
+        Product.where(category_id: self.id)
+      end
+
     private
+
+      def paternity
+        if !self.id.nil? && self.parent_id == self.id
+          errors.add(:parent_id, "can not be equal to object id: you can't be your own father! that's sick!!!")
+        end
+      end
 
       # 初始化DN, 原理是调用save触发更新时的update_dn生成DN然后保存
       # => Initialization DN principle the call save trigger updates

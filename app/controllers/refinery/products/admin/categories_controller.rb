@@ -10,7 +10,7 @@ module Refinery
         before_filter do @categories = Products::ProductCategory.all end
 
         def index
-          @categories = Products::ProductCategory.all.paginate(:page => 1)
+          @categories = Products::ProductCategory.roots.paginate(:page => 1)
         end
 
         def edit
@@ -22,16 +22,20 @@ module Refinery
         end
 
         def update
-          p "========================== UPDATE ===="
-          p params
-          @category = Products::ProductCategory.find params[:id]
+          @category = Products::ProductCategory.find_by_id params[:id]
+
+          if params[:product_category][:parent_id] != @category.parent_id
+            parent = Products::ProductCategory.find_by_id params[:product_category][:parent_id]
+            parent.children << @category
+            parent.save!
+          end
+
           @category.update_attributes params[:product_category]
 
           redirect_to :back
         end
 
         def create
-          p "========================== CREATE ====="
           @category = Products::ProductCategory.new(params[:product_category])
           @category.save!
           redirect_to refinery.products_admin_categories_path

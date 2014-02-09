@@ -1,0 +1,32 @@
+<% content_for :body_content_title do %>
+  <%= @category.name %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  <section>
+    <h1>Name</h1>
+    <p>
+      <%=raw @category.name %>
+    </p>
+  </section>
+  <section>
+    <h1>Description</h1>
+    <p>
+      <%=raw @category.description %>
+    </p>
+  </section>
+  <section>
+    <%= render partial: "product", collection: @category.products %>
+  </section>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="categories">
+      <%= render partial: "category", collection: @category.children %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

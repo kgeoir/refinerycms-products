@@ -5,7 +5,11 @@ module Refinery
       before_filter :find_page
 
       def index
-        @categories = Products::ProductCategory.all
+        @categories = Products::ProductCategory.roots
+      end
+
+      def show
+        @category = Products::ProductCategory.find_by_id(params[:id])
       end
 
       protected
