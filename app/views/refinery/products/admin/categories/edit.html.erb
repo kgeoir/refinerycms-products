@@ -18,10 +18,12 @@
     </div>
   </div>
 
+  <% if !@categories.nil? %>
   <div class='field'>
     <%= f.label :parent_id %>
     <%= f.select :parent_id, available_categories(@categories), :include_blank => true %>
   </div>
+  <% end %>
 
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
