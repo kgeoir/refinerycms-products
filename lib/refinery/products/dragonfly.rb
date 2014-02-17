@@ -11,6 +11,7 @@ module Refinery
 
           app_images.define_macro(::Refinery::Products::ProductImage, :image_accessor)
           app_images.define_macro(::Refinery::Products::Product, :image_accessor)
+          app_images.define_macro(::Refinery::Products::ProductCategory, :image_accessor)
 
           app_images.analyser.register(::Dragonfly::ImageMagick::Analyser)
           app_images.analyser.register(::Dragonfly::Analysis::FileCommandAnalyser)

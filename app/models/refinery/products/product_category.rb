@@ -1,15 +1,22 @@
 # -*- coding: utf-8 -*-
+require 'dragonfly'
 require 'acts_as_indexed'
 
 module Refinery
   module Products
     class ProductCategory < Refinery::Core::BaseModel
-      attr_accessible :name, :code, :description, :parent_id
+      ::Refinery::Products::Dragonfly.setup!
 
       self.table_name = 'refinery_product_categories'
 
       belongs_to :parent, :class_name => name
       has_many :children, :class_name => name, :foreign_key => "parent_id", :dependent => :destroy
+
+      include Images::Validators
+
+      image_accessor :image
+      attr_accessible :name, :code, :description, :parent_id, :image, :image_size
+
 
       scope :roots, :conditions => 'parent_id is NULL', :order => 'sort ASC, created_at DESC'
 

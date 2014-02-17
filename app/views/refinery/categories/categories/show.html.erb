@@ -5,6 +5,9 @@
 <% content_for :body_content_left do %>
   <section>
     <h1>Name</h1>
+    <div class="image" >
+      <%= link_to image_tag(@category.image.thumb('100x100#').url), @category.image.url %>
+    </div>
     <p>
       <%=raw @category.name %>
     </p>

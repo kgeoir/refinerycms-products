@@ -25,6 +25,17 @@
   </div>
   <% end %>
 
+  <div class='field'>
+    <div style='border: 1px solid #AAAAAA; display: block; height: 100px; width: 100px; padding: 2px; float: left; margin-right: 5px;'>
+      <%= image_tag @category.image.thumb('100x100#').url if @category.image %>
+    </div>
+
+    <div style='clear: both;'></div>
+
+    <p><%= f.file_field :image %></p>
+  </div>
+
+
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
              :delete_name => t('delete', :scope => 'refinery.products.admin.products.product'),

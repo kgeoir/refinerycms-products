@@ -5,7 +5,7 @@ module Refinery
     class ProductImage < Refinery::Core::BaseModel
       ::Refinery::Products::Dragonfly.setup!
 
-      self.table_name = 'refinery_product_images'  
+      self.table_name = 'refinery_product_images'
 
       include Images::Validators
 
