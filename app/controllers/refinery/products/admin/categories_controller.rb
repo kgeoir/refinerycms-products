@@ -24,7 +24,7 @@ module Refinery
         def update
           @category = Products::ProductCategory.find_by_id params[:id]
 
-          if params[:product_category][:parent_id] != @category.parent_id
+          if !params[:product_category][:parent_id].empty? && params[:product_category][:parent_id] != @category.parent_id
             parent = Products::ProductCategory.find_by_id params[:product_category][:parent_id]
             parent.children << @category
             parent.save!
