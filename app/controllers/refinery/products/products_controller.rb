@@ -9,6 +9,7 @@ module Refinery
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @product in the line below:
         # present(@page)
+        @categories = Products::ProductCategory.roots
         @products = Product.paginate :page => params[:page]
       end
 
