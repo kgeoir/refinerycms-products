@@ -7,6 +7,8 @@ en:
       admin:
         products:
           actions:
+            products: Products
+            categories: Categories
             create_new: Add New Product
             reorder: Reorder Products
             reorder_done: Done Reordering Products
@@ -21,8 +23,11 @@ en:
             delete: Remove this product forever
         categories:
           actions:
+            products: Products
+            categories: Categories
             create_new: Add new category
             reorder: Reorder Categories
+            back_to_products: Back to products list
       products:
         show:
           other: Other Products
