@@ -2,27 +2,37 @@ fr:
   refinery:
     plugins:
       products:
-        title: Products
+        title: Produits
     products:
       admin:
         products:
           actions:
-            create_new: Créer un(e) nouve(au/l/lle) Product
-            reorder: Réordonner les Products
-            reorder_done: Fin de réordonnancement des Products
+            products: Produits
+            categories: Catégories
+            create_new: Ajouter un nouveau produit
+            reorder: Réordonner les Produits
+            reorder_done: Fin de réordonnancement des Produits
+            manage_categories: Gérer les Catégories
           records:
-            title: Products
+            title: Produits
             sorry_no_results: "Désolé ! Aucun résultat."
-            no_items_yet: 'Il n''y a actuellement aucun(e) Product. Cliquer sur "Créer un(e) nouve(au/l/lle) Product" pour créer votre premi(er/ère) product.'
+            no_items_yet: 'Il n''y a actuellement aucun Produit. Cliquer sur "Créer un nouveau Produit" pour créer votre premier produit.'
           product:
-            view_live_html: Voir ce(t/tte) product <br/><em>(Ouvre une nouvelle fenêtre)</em>
-            edit: Modifier ce(t/tte) product
-            delete: Supprimer définitivement ce(t/tte) product
+            view_live_html: Voir ce produit <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce produit
+            delete: Supprimer définitivement ce produit
+        categories:
+          actions:
+            products: Produits
+            categories: Catégories
+            create_new: Créer une nouvelle Catégorie
+            reorder: Réordonner les Catégories
+            back_to_products: Retour a la liste des produits
       products:
         show:
-          other: Autres Products
+          other: Autres Produits
   activerecord:
     attributes:
       'refinery/products/product':
-        title: Title
+        title: Titre
         description: Description

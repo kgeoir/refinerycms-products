@@ -4,30 +4,33 @@
       <%= render '/refinery/admin/search', :url => refinery.products_admin_categories_path %>
     </li>
   <% end %>
-  <li>
-    <%# link_to t('.create_new'), refinery.new_products_admin_category_path,
-                 :class => "add_icon" %>
-  </li>
-<% if !searching? && ::Refinery::Products::Admin::CategoriesController.sortable? && ::Refinery::Products::Product.any? %>
-  <li>
-    <%= link_to t('.reorder', :what => "Categories"),
-                 refinery.products_admin_categories_path,
-                 :id => "reorder_action",
-                 :class => "reorder_icon" %>
 
-    <%= link_to t('.reorder_done', :what => "Categories"),
-                 refinery.products_admin_categories_path,
-                 :id => "reorder_action_done",
-                 :style => "display: none;",
-                 :class => "reorder_icon" %>
-  </li>
-<% end %>
-  <li>
-    <%= link_to t('.manage_categories'), refinery.products_admin_categories_path, :class => 'manage_categories' %>
-  </li>
+  <li><h2><%= t('.categories') %></h2></li>
 
   <li>
-    <%= link_to t('.new_category'), refinery.new_products_admin_category_path, :class => 'add_icon' %>
+    <%= link_to t('.create_new'), refinery.new_products_admin_category_path, :class => 'add_icon' %>
   </li>
+
+  <% if !searching? && ::Refinery::Products::Admin::CategoriesController.sortable? && ::Refinery::Products::Product.any? %>
+    <li>
+      <%# link_to t('.reorder', :what => "Categories"),
+                   refinery.products_admin_categories_path,
+                   :id => "reorder_action",
+                   :class => "reorder_icon" %>
+
+      <%# link_to t('.reorder_done', :what => "Categories"),
+                   refinery.products_admin_categories_path,
+                   :id => "reorder_action_done",
+                   :style => "display: none;",
+                   :class => "reorder_icon" %>
+    </li>
+  <% end %>
+
+  <li><br /><h2><%= t('.products') %></h2></li>
+
+  <li>
+    <%= link_to t('.back_to_products'), refinery.products_admin_products_path, :class => 'back_icon' %>
+  </li>
+
 
 </ul>
