@@ -26,8 +26,9 @@
   <% end %>
 
   <div class='field'>
-    <div style='border: 1px solid #AAAAAA; display: block; height: 100px; width: 100px; padding: 2px; float: left; margin-right: 5px;'>
-      <%= image_tag @category.image.thumb('100x100#').url if @category.image %>
+    <label>Image</label>
+    <div style='border: 1px solid #AAAAAA; display: block; min-height: 100px; min-width: 100px; padding: 2px; float: left; margin-right: 5px;'>
+      <%= image_tag @category.image.thumb('200x150').url if @category.image %>
     </div>
 
     <div style='clear: both;'></div>
