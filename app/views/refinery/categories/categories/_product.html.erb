@@ -1,8 +1,7 @@
-<li>
-  <h2><%= product.title %></h2>
-  <% img = product.image %>
-  <% if !img.nil? %>
-    <%= link_to image_tag(img.image.thumb('100x100#').url), img.image.url %>
-  <% end %>
-  <br />
-</li>
+<% if !product.nil? %>
+  <li>
+    <h2><%= product.title %></h2>
+      <%= link_to image_tag(product.image.thumb('100x100#').url), product.image.url %>
+    <br />
+  </li>
+<% end %>
